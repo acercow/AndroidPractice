@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gesture.GestureTestActivity"></activity>
+        <activity android:name=".gesture.GestureTestActivity" />
+        <activity android:name=".viewpager.ScreenSlidePageActivity"></activity>
     </application>
 
 </manifest>
