@@ -3,18 +3,19 @@ package com.acercow.androidpractice.viewpager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.acercow.androidpractice.R;
 
 public class ScreenSlidePageActivity extends AppCompatActivity implements PageSlideScreenFragment.OnFragmentInteractionListener {
 
+    private static final String TAG = ScreenSlidePageActivity.class.getSimpleName();
     private ViewPager mPager;
 
     @Override
@@ -27,6 +28,22 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
         PagerAdapter adapter = new ScreenSlidePagderPagerAdapter(fm);
         mPager.setAdapter(adapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.d(TAG, ":: onPageSelected :: position :: " + position );
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
@@ -38,13 +55,17 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
     private class ScreenSlidePagderPagerAdapter extends FragmentStatePagerAdapter {
 
 
+
+
         public ScreenSlidePagderPagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return PageSlideScreenFragment.newInstance("Fragment: ", "item");
+            PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance("position : " + position, "item");
+            fragment.mParamBySet = "POSITION :::: " + position;
+            return fragment;
         }
 
         @Override
@@ -52,6 +73,8 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
             return 5;
         }
     }
+
+
 
     public class ZoomOutPageTransformer implements ViewPager.PageTransformer {
         private static final float MIN_SCALE = 0.85f;
