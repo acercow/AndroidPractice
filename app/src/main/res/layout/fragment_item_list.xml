@@ -2,6 +2,8 @@
 <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="30dp"
     android:id="@+id/list"
     android:name="com.acercow.androidpractice.viewpager.ItemFragment"
     android:layout_width="match_parent"

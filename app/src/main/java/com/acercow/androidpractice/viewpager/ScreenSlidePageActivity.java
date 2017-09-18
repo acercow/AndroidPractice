@@ -36,7 +36,7 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
 
             @Override
             public void onPageSelected(int position) {
-                Log.d(TAG, ":: onPageSelected :: position :: " + position );
+                Log.v(TAG, ":: onPageSelected :: position :: " + position );
             }
 
             @Override
@@ -63,7 +63,7 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
 
         @Override
         public Fragment getItem(int position) {
-            PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance("position : " + position, "item");
+            PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance(position + "", "item");
             fragment.mParamBySet = "POSITION :::: " + position;
             return fragment;
         }

@@ -55,14 +55,14 @@ public class ItemFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        Log.d(TAG, "=====onCreate=====" +  pos );
+        Log.i(TAG + " [ " + pos + " ]", "onCreate :: " + savedInstanceState);
 
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "=====onResume=====" +  pos );
+        Log.i(TAG + " [ " + pos + " ]", "onResume");
 
     }
 
@@ -82,7 +82,7 @@ public class ItemFragment extends Fragment {
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
-        Log.d(TAG, "=====onCreateView=====" +  pos );
+        Log.i(TAG + " [ " + pos + " ]", "onCreateView");
 
         return view;
     }
@@ -91,6 +91,8 @@ public class ItemFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.i(TAG + " [ " + pos + " ]", "onAttach");
+
 //        if (context instanceof OnListFragmentInteractionListener) {
 //            mListener = (OnListFragmentInteractionListener) context;
 //        } else {
@@ -104,6 +106,7 @@ public class ItemFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+        Log.i(TAG + " [ " + pos + " ]", "onDetach");
     }
 
     /**
@@ -119,5 +122,11 @@ public class ItemFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(DummyItem item);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG + " [ " + pos + " ]", "onDestroy");
     }
 }

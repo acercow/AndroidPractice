@@ -16,6 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
 //        startActivity(new Intent(this, GestureTestActivity.class));
         startActivity(new Intent(this, ScreenSlidePageActivity.class));
-        startActivity(new Intent(this, ScreenSlidePageActivity.class));
+        finish();
     }
 }
