@@ -2,6 +2,7 @@ package com.acercow.androidpractice.viewpager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ public class ItemFragment extends Fragment {
     private final static String TAG = ItemFragment.class.getSimpleName();
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private static final String ARG_POSITION = "column-pos";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     public OnListFragmentInteractionListener mListener;
@@ -40,12 +42,30 @@ public class ItemFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ItemFragment newInstance(int columnCount) {
+    public static ItemFragment newInstance(int columnCount, String pos) {
         ItemFragment fragment = new ItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
+        args.putString(ARG_POSITION, pos);
         fragment.setArguments(args);
         return fragment;
+    }
+
+
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.i(TAG + " [ " + pos + " ]", "onAttach");
+
+//        if (context instanceof OnListFragmentInteractionListener) {
+//            mListener = (OnListFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnListFragmentInteractionListener");
+//        }
+//        }
     }
 
     @Override
@@ -54,15 +74,9 @@ public class ItemFragment extends Fragment {
 
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
+            pos = getArguments().getString(ARG_POSITION);
         }
         Log.i(TAG + " [ " + pos + " ]", "onCreate :: " + savedInstanceState);
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.i(TAG + " [ " + pos + " ]", "onResume");
 
     }
 
@@ -87,19 +101,55 @@ public class ItemFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.i(TAG + " [ " + pos + " ]", "onViewCreated");
+    }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.i(TAG + " [ " + pos + " ]", "onAttach");
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
 
-//        if (context instanceof OnListFragmentInteractionListener) {
-//            mListener = (OnListFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnListFragmentInteractionListener");
-//        }
-//        }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.i(TAG + " [ " + pos + " ]", "onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG + " [ " + pos + " ]", "onResume");
+
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG + " [ " + pos + " ]", "outState");
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG + " [ " + pos + " ]", "onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i(TAG + " [ " + pos + " ]", "onStop");
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.i(TAG + " [ " + pos + " ]", "onDestroyView");
+
     }
 
     @Override

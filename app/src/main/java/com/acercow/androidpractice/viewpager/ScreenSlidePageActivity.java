@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -36,7 +37,7 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
 
             @Override
             public void onPageSelected(int position) {
-                Log.v(TAG, ":: onPageSelected :: position :: " + position );
+                Log.v(TAG, "Fragment # onPageSelected [ " + position + " ]" );
             }
 
             @Override
@@ -64,13 +65,13 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
         @Override
         public Fragment getItem(int position) {
             PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance(position + "", "item");
-            fragment.mParamBySet = "POSITION :::: " + position;
+            fragment.mParamBySet = "Fragment POSITION :::: " + position;
             return fragment;
         }
 
         @Override
         public int getCount() {
-            return 5;
+            return 20;
         }
     }
 

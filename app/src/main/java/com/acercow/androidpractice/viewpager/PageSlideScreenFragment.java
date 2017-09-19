@@ -115,12 +115,12 @@ public class PageSlideScreenFragment extends Fragment {
     }
 
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        Log.d(TAG + " [ " + mParam1 + " ]", "onStart");
-//
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG + " [ " + mParam1 + " ]", "onStart");
+
+    }
 
     @Override
     public void onResume() {
@@ -131,14 +131,6 @@ public class PageSlideScreenFragment extends Fragment {
 
 
 
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        Log.d(TAG + " [ " + mParam1 + " ]", "onStop");
-//
-//    }
-
-
     @Override
     public void onPause() {
         super.onPause();
@@ -146,6 +138,19 @@ public class PageSlideScreenFragment extends Fragment {
     }
 
 
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG + " [ " + mParam1 + " ]", "onStop");
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(TAG + " [ " + mParam1 + " ]", "onDestroyView");
+    }
 
     @Override
     public void onDestroy() {
@@ -180,14 +185,15 @@ public class PageSlideScreenFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (getUserVisibleHint()) {
-
+            Log.d(TAG + " [ " + mParam1 + " ]", "Parent Fragment # lazyLoad()");
             Handler handler = new Handler();
 
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    ItemFragment itemFragment = new ItemFragment();
-                    itemFragment.pos = mParam1;
+//                    ItemFragment itemFragment = new ItemFragment();
+//                    itemFragment.pos = mParam1;
+                    ItemFragment itemFragment = ItemFragment.newInstance(0, mParam1);
                     itemFragment.mListener = new ItemFragment.OnListFragmentInteractionListener() {
                         @Override
                         public void onListFragmentInteraction(DummyContent.DummyItem item) {
