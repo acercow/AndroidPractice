@@ -17,7 +17,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".gesture.GestureTestActivity" />
-        <activity android:name=".viewpager.ScreenSlidePageActivity"></activity>
+        <activity android:name=".viewpager.ScreenSlidePageActivity" />
+        <activity android:name=".bpbackgroudservice.IntentServiceTestActivity" />
+
+        <service
+            android:name=".bpbackgroudservice.MyIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
