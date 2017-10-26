@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#FFF"
+    android:id="@+id/main_content"
     tools:context="com.acercow.androidpractice.MainActivity">
 
     <TextView
@@ -17,15 +18,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:visibility="gone"
         android:id="@+id/hide_key"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
 
     <EditText
-        android:id="@+id/et_test"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true" />
+        android:id="@+id/et"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible" />
 
-</LinearLayout>
+
+</RelativeLayout>

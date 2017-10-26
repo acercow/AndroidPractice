@@ -1,5 +1,9 @@
 package com.acercow.androidpractice;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,35 +14,56 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.acercow.androidpractice.gesture.GestureTestActivity;
 import com.acercow.androidpractice.viewpager.ScreenSlidePageActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private View mDecorView;
     private EditText et;
+    private InputMethodManager mInputMethodManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mDecorView = getWindow().getDecorView();
-
+//        mDecorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 
         final AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this)
                 .setTitle("title");
-
-
         setContentView(R.layout.activity_main);
-        et = (EditText) findViewById(R.id.et_test);
-        findViewById(R.id.et_test).setOnClickListener(new View.OnClickListener() {
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.main_content, new PlusOneFragment()).commit();
+//        AndroidBug5497Workaround.assistActivity(this, findViewById(R.id.hide_key));
+        findViewById(R.id.hide_key).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hideKeyboard();
+                AndroidBug5497Workaround.assistActivity(MainActivity.this, findViewById(R.id.et));
+                InputMethodManager imm = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+
+                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
             }
         });
+        findViewById(R.id.et).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "et clicked", Toast.LENGTH_SHORT).show();
+                showKeyboard();
+            }
+        });
+
+//        et = (EditText) findViewById(R.id.et_test);
+//        findViewById(R.id.et_test).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                hideKeyboard();
+//            }
+//        });
 //        startActivity(new Intent(this, GestureTestActivity.class));
 //        startActivity(new Intent(this, ScreenSlidePageActivity.class));
 //        finish();
@@ -47,11 +72,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hidestickySystemUI();
-        }
+//            hidestickySystemUI();
         Log.d(TAG, "onWindowFocusChanged :: hasFocus :: " + hasFocus);
     }
+
 
     private void hidestickySystemUI() {
         mDecorView.setSystemUiVisibility(
@@ -63,11 +87,6 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
-    private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(et, InputMethodManager.SHOW_FORCED);
-        imm.hideSoftInputFromWindow(et.getWindowToken(), 0); //强制隐藏键盘
-    }
 
     // This snippet hides the system bars.
     private void hideSystemUI() {
@@ -91,5 +110,21 @@ public class MainActivity extends AppCompatActivity {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
+    public void showKeyboard() {
+        if (mInputMethodManager == null) {
+            mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        }
+//        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+        mInputMethodManager.showSoftInput(et, 0); // 默认chatedit隐藏的 所以传过去也获取不到焦点
+    }
+
+    public void hideKeyboard() {
+        if (mInputMethodManager == null) {
+            mInputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        }
+//        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+//        mInputMethodManager.hideSoftInputFromWindow(chatEdit.getWindowToken(), 0); // 默认chatedit隐藏的 所以传过去也获取不到焦点
     }
 }

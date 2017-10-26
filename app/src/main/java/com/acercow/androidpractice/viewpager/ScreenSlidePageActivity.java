@@ -14,6 +14,8 @@ import android.view.View;
 
 import com.acercow.androidpractice.R;
 
+import static android.R.attr.fragment;
+
 public class ScreenSlidePageActivity extends AppCompatActivity implements PageSlideScreenFragment.OnFragmentInteractionListener {
 
     private static final String TAG = ScreenSlidePageActivity.class.getSimpleName();
@@ -23,7 +25,7 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_slide_page);
-
+        View v = getWindow().getDecorView().findViewById(android.R.id.content);
         mPager = (ViewPager) findViewById(R.id.view_pager);
         FragmentManager fm = getSupportFragmentManager();
         PagerAdapter adapter = new ScreenSlidePagderPagerAdapter(fm);
@@ -64,7 +66,10 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
 
         @Override
         public Fragment getItem(int position) {
-            PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance(position + "", "item");
+//            PageSlideScreenFragment fragment =  PageSlideScreenFragment.newInstance(position + "", "item");
+            PageSlideScreenFragment fragment =  new PageSlideScreenFragment();
+            fragment.mParam1 = position+ "";
+
             fragment.mParamBySet = "Fragment POSITION :::: " + position;
             return fragment;
         }
