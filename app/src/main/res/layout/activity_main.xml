@@ -11,6 +11,14 @@
         <variable
             name="myHandler"
             type="com.acercow.androidpractice.databinding.MyHandler" />
+
+        <variable
+            name="task"
+            type="com.acercow.androidpractice.databinding.Task" />
+
+        <variable
+            name="presenter"
+            type="com.acercow.androidpractice.databinding.Presenter" />
     </data>
 
     <RelativeLayout
@@ -30,6 +38,7 @@
             android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> presenter.onSaveClick(task)}"
             android:text="click" />
 
 

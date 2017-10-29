@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import com.acercow.androidpractice.databinding.ActivityMainBinding;
 import com.acercow.androidpractice.databinding.MyHandler;
+import com.acercow.androidpractice.databinding.Presenter;
+import com.acercow.androidpractice.databinding.Task;
 import com.acercow.androidpractice.databinding.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClickFriend(View view) {
                 super.onClickFriend(view);
                 Toast.makeText(MainActivity.this, "bind success", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        binding.setTask(new Task());
+        binding.setPresenter(new Presenter() {
+            @Override
+            public void onSaveClick(Task task) {
+                super.onSaveClick(task);
             }
         });
 
