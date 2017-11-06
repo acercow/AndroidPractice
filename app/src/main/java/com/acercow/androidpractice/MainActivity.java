@@ -1,5 +1,6 @@
 package com.acercow.androidpractice;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import com.acercow.androidpractice.databinding.MyHandler;
 import com.acercow.androidpractice.databinding.Presenter;
 import com.acercow.androidpractice.databinding.Task;
 import com.acercow.androidpractice.databinding.User;
+import com.acercow.androidpractice.lifecycle.LifeCycleActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 //        startActivity(new Intent(this, GestureTestActivity.class));
 //        startActivity(new Intent(this, ScreenSlidePageActivity.class));
 //        finish();
-
+        startActivity(new Intent(this, LifeCycleActivity.class));
+        finish();
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         User user = new User("Test", "User");
         binding.setUser(user);

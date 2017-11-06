@@ -22,7 +22,9 @@
 
         <service
             android:name=".bpbackgroudservice.MyIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
+
+        <activity android:name=".lifecycle.LifeCycleActivity"></activity>
     </application>
 
 </manifest>
