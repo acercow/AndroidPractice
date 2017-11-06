@@ -13,6 +13,7 @@ import com.acercow.androidpractice.databinding.Presenter;
 import com.acercow.androidpractice.databinding.Task;
 import com.acercow.androidpractice.databinding.User;
 import com.acercow.androidpractice.lifecycle.LifeCycleActivity;
+import com.acercow.androidpractice.viewpager.ScreenSlidePageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +24,8 @@ public class MainActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_main);
 
 //        startActivity(new Intent(this, GestureTestActivity.class));
-//        startActivity(new Intent(this, ScreenSlidePageActivity.class));
-//        finish();
-        startActivity(new Intent(this, LifeCycleActivity.class));
+        startActivity(new Intent(this, ScreenSlidePageActivity.class));
+//        startActivity(new Intent(this, LifeCycleActivity.class));
         finish();
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         User user = new User("Test", "User");

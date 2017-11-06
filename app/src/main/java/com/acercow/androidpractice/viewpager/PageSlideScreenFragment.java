@@ -181,7 +181,7 @@ public class PageSlideScreenFragment extends Fragment {
 //
 //    }
 
-    @Override
+   /* @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (getUserVisibleHint()) {
@@ -210,7 +210,7 @@ public class PageSlideScreenFragment extends Fragment {
 
         }
     }
-
+*/
 
     /**
      * This interface must be implemented by activities that contain this
