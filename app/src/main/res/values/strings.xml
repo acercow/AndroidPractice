@@ -6,4 +6,5 @@
     <string name="lorem_ipsum">lorem ipsum</string>
     <string name="hour_ranking">%1$s%2$s</string>
     <string name="hour_ranking_default_title">小时榜: </string>
+    <string name="hour_ranking_webview_count_down">距离结束还有%1$d分%2$d秒</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.acercow.androidpractice;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 
+import com.acercow.androidpractice.lifecycle.LifeCycleActivity;
 import com.acercow.androidpractice.rankview.HourRankingView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,21 +19,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ((HourRankingView)findViewById(R.id.ranking)).updateContent(" 在输出之前放置m个0在输出个0 ");
 
         findViewById(R.id.ranking).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                WebView web = new XiaoSenWebView(MainActivity.this);
-                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.web);
-                web.startAnimation(anim);
+//                WebView web = new XiaoSenWebView(MainActivity.this);
+//                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.web);
+//                web.startAnimation(anim);
+//                startActivity(new Intent(MainActivity.this, LifeCycleActivity.class));
+
+                Dialog dialog = new HourRankDialog(MainActivity.this, R.style.CommonBottomDialog);
+                dialog.show();
 
             }
         });
 //        startActivity(new Intent(this, GestureTestActivity.class));
 //        startActivity(new Intent(this, ScreenSlidePageActivity.class));
-//        startActivity(new Intent(this, LifeCycleActivity.class));
 //        finish();
 //        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 //        User user = new User("Test", "User");

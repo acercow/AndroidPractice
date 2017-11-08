@@ -56,7 +56,7 @@ public class HourRankingView extends FrameLayout implements View.OnClickListener
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
         gradientDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        gradientDrawable.setColors(new int[]{0xFFFF5C25, 0xFFFF374A});
+        gradientDrawable.setColors(new int[]{0xB3FF5C25, 0xB3FF374A});
         gradientDrawable.setCornerRadius(90);
         mllContent.setBackground(gradientDrawable);
         mllContent.setClipChildren(false);

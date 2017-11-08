@@ -14,6 +14,7 @@ public class LifeCycleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.v(TAG, "onCreate");
         super.onCreate(savedInstanceState);
+        setTheme(R.style.CommonBottomDialog);
         setContentView(R.layout.activity_main2);
 
         FragmentManager fm = getSupportFragmentManager();

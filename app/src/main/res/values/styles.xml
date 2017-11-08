@@ -7,5 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="CommonBottomDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/CommonBottomDialog.AnimationStyle</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+    <style name="CommonBottomDialog.AnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/enter_from_buttom</item>
+        <item name="android:windowExitAnimation">@anim/exit_from_buttom</item>
+    </style>
 
 </resources>
