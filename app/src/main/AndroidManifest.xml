@@ -24,7 +24,8 @@
             android:name=".bpbackgroudservice.MyIntentService"
             android:exported="false" />
 
-        <activity android:name=".lifecycle.LifeCycleActivity"></activity>
+        <activity android:name=".lifecycle.LifeCycleActivity" />
+        <activity android:name=".rankview.WebViewActivity"></activity>
     </application>
 
 </manifest>

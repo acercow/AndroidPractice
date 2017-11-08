@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    tools:context="com.acercow.androidpractice.rankview.WebViewActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity=""
+            android:layout_weight="0"
+            android:src="@drawable/wblive_hour_rank_bg_left" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:ellipsize="end"
+            android:background="@color/colorPrimaryDark"
+
+            android:text="dsasdfasfsafsafsdsasdfasfasfasfsdfasfasfsafsafsafsdsasdfasfsafsafsdsasdfasfasfasfsdfasfasfsafsafsafs"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="bottom"
+            android:layout_weight="0"
+            android:translationX="4dp"
+            android:src="@drawable/wblive_hour_rank_bg_right" />
+    </LinearLayout>
+</RelativeLayout>

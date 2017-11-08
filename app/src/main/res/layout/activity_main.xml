@@ -2,50 +2,58 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+    <!--<data>-->
 
-        <variable
-            name="user"
-            type="com.acercow.androidpractice.databinding.User" />
+    <!--<variable-->
+    <!--name="user"-->
+    <!--type="com.acercow.androidpractice.databinding.User" />-->
 
-        <variable
-            name="myHandler"
-            type="com.acercow.androidpractice.databinding.MyHandler" />
+    <!--<variable-->
+    <!--name="myHandler"-->
+    <!--type="com.acercow.androidpractice.databinding.MyHandler" />-->
 
-        <variable
-            name="task"
-            type="com.acercow.androidpractice.databinding.Task" />
+    <!--<variable-->
+    <!--name="task"-->
+    <!--type="com.acercow.androidpractice.databinding.Task" />-->
 
-        <variable
-            name="presenter"
-            type="com.acercow.androidpractice.databinding.Presenter" />
-    </data>
+    <!--<variable-->
+    <!--name="presenter"-->
+    <!--type="com.acercow.androidpractice.databinding.Presenter" />-->
+    <!--</data>-->
 
     <RelativeLayout
 
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         tools:context="com.acercow.androidpractice.MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{myHandler::onClickFriend}"
-            android:text="@{user.firstName}"/>
-        <Button
-            android:id="@+id/click"
-            android:layout_marginTop="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> presenter.onSaveClick(task)}"
-            android:text="click" />
-
-
-        <View
-            android:id="@+id/view"
+        <com.acercow.androidpractice.rankview.HourRankingView
+            android:id="@+id/ranking"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="20dp" />
+
+
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="@{myHandler::onClickFriend}"-->
+        <!--android:text="@{user.firstName}"/>-->
+        <!--<Button-->
+        <!--android:id="@+id/click"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="@{() -> presenter.onSaveClick(task)}"-->
+        <!--android:text="click" />-->
+
+
+        <!--<View-->
+        <!--android:id="@+id/view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
     </RelativeLayout>
 </layout>
