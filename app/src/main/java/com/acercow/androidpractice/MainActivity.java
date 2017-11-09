@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((HourRankingView)findViewById(R.id.ranking)).updateContent(" 在输出之前放置m个0在输出个0 ");
+        ((HourRankingView)findViewById(R.id.ranking)).updateContent(" 在输出之前放置m个0在输在输出之前放置m个0在输在输出之前放置m个0在输在输出之前放置m个0在输 ");
 
         findViewById(R.id.ranking).setOnClickListener(new View.OnClickListener() {
             @Override
