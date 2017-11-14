@@ -21,7 +21,6 @@ public class XiaoSenWebView extends WebView {
     }
 
     private void init() {
-        loadUrl("http://www.baidu.com");
     }
 
 

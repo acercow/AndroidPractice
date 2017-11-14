@@ -2,7 +2,6 @@ package com.acercow.androidpractice.rankview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.Nullable;
@@ -11,9 +10,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -21,25 +18,25 @@ import com.acercow.androidpractice.R;
 
 /**
  *
- *
+ * Created by zhaosen on 2017/11/8.
  *
  */
-public class HourRankingView extends RelativeLayout implements View.OnClickListener {
+public class HourRankingHeaderView extends RelativeLayout implements View.OnClickListener {
 
     private TextView mTextView;
     private String mDefaultTitle;
 
-    public HourRankingView(Context context) {
+public HourRankingHeaderView(Context        context) {
         super(context);
         init(null, 0);
     }
 
-    public HourRankingView(Context context, AttributeSet attrs) {
+    public HourRankingHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public HourRankingView(Context context, AttributeSet attrs, int defStyle) {
+    public HourRankingHeaderView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
@@ -72,7 +69,7 @@ public class HourRankingView extends RelativeLayout implements View.OnClickListe
         addView(mTextView);
 
         ImageView ivArrow = new ImageView(getContext());
-        LayoutParams arrowParams = new LayoutParams(dip2px(5), dip2px(8.6F));
+        LayoutParams arrowParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         arrowParams.addRule(ALIGN_RIGHT, mTextView.getId());
         arrowParams.addRule(CENTER_VERTICAL);
         arrowParams.rightMargin = dip2px(10F);
@@ -109,7 +106,7 @@ public class HourRankingView extends RelativeLayout implements View.OnClickListe
         if (color != -1) mTextView.setTextColor(color);
         if (size != -1) mTextView.setTextSize(size);
         mDefaultTitle = TextUtils.isEmpty(title) ? mDefaultTitle : title;
-        mTextView.setText(String.format(getContext().getResources().getString(R.string.hour_ranking), mDefaultTitle, content));
+        mTextView.setText(String.format(getContext().getResources().getString(R.string.hour_ranking_header), mDefaultTitle, content));
     }
 
 

@@ -1,25 +1,23 @@
 package com.acercow.androidpractice;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 
-import com.acercow.androidpractice.lifecycle.LifeCycleActivity;
-import com.acercow.androidpractice.rankview.HourRankingView;
+import com.acercow.androidpractice.rankview.HourRankingHeaderView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
+    int i = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((HourRankingView)findViewById(R.id.ranking)).updateContent(" 在输出之前放置m个0在输在输出之前放置m个0在输在输出之前放置m个0在输在输出之前放置m个0在输 ");
+        ((HourRankingHeaderView) findViewById(R.id.ranking)).updateContent(" 另撒娇扥拉斯看扥令爱三扥 ");
 
         findViewById(R.id.ranking).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,8 +26,7 @@ public class MainActivity extends AppCompatActivity {
 //                Animation anim = AnimationUtils.loadAnimation(MainActivity.this, R.anim.web);
 //                web.startAnimation(anim);
 //                startActivity(new Intent(MainActivity.this, LifeCycleActivity.class));
-
-                Dialog dialog = new HourRankDialog(MainActivity.this, R.style.CommonBottomDialog);
+                HourRankingDialog dialog = new HourRankingDialog(MainActivity.this, R.style.CommonBottomDialog);
                 dialog.show();
 
             }
