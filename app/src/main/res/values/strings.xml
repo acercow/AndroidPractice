@@ -7,4 +7,5 @@
     <string name="hour_ranking_header">%1$s%2$s</string>
     <string name="hour_ranking_default_title">小时榜: </string>
     <string name="hour_ranking_webview_count_down">距离结束还有 %1$s 分 %2$s 秒 </string>
+    <string name="title_activity_main4">Main4Activity</string>
 </resources>
