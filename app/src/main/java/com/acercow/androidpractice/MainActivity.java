@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.acercow.androidpractice.lifecycle.LifeCycleActivity;
 import com.acercow.androidpractice.rankview.HourRankingHeaderView;
+import com.acercow.androidpractice.viewpager.ScreenSlidePageActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "[LifeCycle]" + "[Main]";
@@ -33,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         });
 //        startActivity(new Intent(this, GestureTestActivity.class));
 //        startActivity(new Intent(this, ScreenSlidePageActivity.class));
-//        finish();
-//        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        startActivity(new Intent(this, ScreenSlidePageActivity.class));
+        finish();
+//        Activit yMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 //        User user = new User("Test", "User");
 //        binding.setUser(user);
 //        binding.setMyHandler(new MyHandler() {

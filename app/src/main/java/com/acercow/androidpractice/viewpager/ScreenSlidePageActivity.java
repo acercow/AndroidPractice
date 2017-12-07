@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -16,12 +15,13 @@ import com.acercow.androidpractice.R;
 
 public class ScreenSlidePageActivity extends AppCompatActivity implements PageSlideScreenFragment.OnFragmentInteractionListener {
 
-    private static final String TAG = ScreenSlidePageActivity.class.getSimpleName();
+    private static final String TAG = "[LifeCycle]" + "[Activity]";
     private ViewPager mPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.v(TAG, "onCreate");
         setContentView(R.layout.activity_screen_slide_page);
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
@@ -114,5 +114,35 @@ public class ScreenSlidePageActivity extends AppCompatActivity implements PageSl
                 view.setAlpha(0);
             }
         }
+    }
+
+    @Override
+    public void onStart() {
+        Log.v(TAG, "onStart");
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        Log.v(TAG, "onResume");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.v(TAG, "onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.v(TAG, "onStop");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.v(TAG, "onDestroy");
+        super.onDestroy();
     }
 }
