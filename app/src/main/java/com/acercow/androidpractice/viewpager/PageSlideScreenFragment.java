@@ -29,8 +29,8 @@ public class PageSlideScreenFragment extends Fragment {
     private static final String TAG = "[LifeCycle]" + "[Fragment]";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public String mParam1;
+    public String mParam2;
 
     public String mParamBySet;
 
